@@ -66,9 +66,9 @@ Claude uses a skill by itself when your task fits it. You can also call one by n
 | Skill | What it does |
 |---|---|
 | `web-research` | Answers a question from the web. It searches, reads the best 3 to 5 pages and gives the source URLs. |
-| `scrape-to-files` | Saves 1 to 10 pages as markdown files under `.crawl4ai/` in your project. It runs in its own context, so the page text stays out of the chat. |
+| `scrape-to-files` | Saves pages as markdown files under `.crawl4ai/` in your project. It runs in its own context, so the page text stays out of the chat. It writes only inside `.crawl4ai/`. |
 | `extract-data` | Gets typed JSON from a page, from an instruction or a JSON schema. |
-| `bulk-crawl` | Scrapes more than 10 URLs and can save them as files. It shows the cost estimate first and waits for your yes. Up to 50 URLs run in one batch, 50 to 500 as a background job. |
+| `bulk-crawl` | Saves more than 10 URLs as files. It shows the cost estimate first and waits for your yes. Then `scrape-to-files` saves the pages: up to 50 in one batch, 51 to 500 as a background job. |
 | `recipes` | Runs a ready-made scraper for a known site. Not open yet: the skill checks and tells you. |
 | `watch` | Watches a page and reports the changes you care about. In private preview: the skill checks and tells you. |
 
@@ -79,7 +79,7 @@ Claude uses a skill by itself when your task fits it. You can also call one by n
 | `/crawl4ai:scrape <url>` | Scrapes one page to markdown. |
 | `/crawl4ai:search <query>` | Searches the web and lists the results. |
 | `/crawl4ai:extract <url> <what>` | Extracts the data you describe as JSON. |
-| `/crawl4ai:crawl <urls or a file of urls>` | Scrapes many URLs. |
+| `/crawl4ai:crawl <urls or a file of urls>` | Scrapes and saves many URLs under `.crawl4ai/`. |
 | `/crawl4ai:balance` | Shows your credit. |
 | `/crawl4ai:feedback <text>` | Sends a bug report, a feature request or feedback to the Crawl4AI team. It shows you the exact text and waits for your yes. |
 
@@ -108,11 +108,18 @@ The plugin adds the MCP server `crawl4ai`. Its tools have names like `mcp__plugi
 
 ## Tips
 
+- Saving a long page runs a small script from the plugin with `python3` (3.9 or newer). macOS and most Linux systems have it.
 - Add `.crawl4ai/` to your `.gitignore` if you do not want saved pages in your repository.
 - A page that needs a real browser can take up to 90 seconds. Let the call run.
 - Out of credit (HTTP 402): top up on the dashboard at https://crawl4ai.com/dashboard/.
-- In headless mode (`claude -p`), allow the tools, for example
-  `claude -p --allowedTools "mcp__plugin_crawl4ai_crawl4ai" "Skill" "<your prompt>"`.
+- In headless mode (`claude -p`), allow the tools you need. Put the prompt first, because `--allowedTools` takes every word after it. Do not allow the whole server: that also allows `topup`, `spend_cap` and `recharge`, which spend money.
+
+  ```
+  claude -p "<your prompt>" --allowedTools Skill \
+    mcp__plugin_crawl4ai_crawl4ai__search mcp__plugin_crawl4ai_crawl4ai__answer \
+    mcp__plugin_crawl4ai_crawl4ai__scrape mcp__plugin_crawl4ai_crawl4ai__batch \
+    mcp__plugin_crawl4ai_crawl4ai__extract mcp__plugin_crawl4ai_crawl4ai__estimate
+  ```
 
 ## Other agents
 

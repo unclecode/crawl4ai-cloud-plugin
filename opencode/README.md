@@ -14,7 +14,7 @@ set up crawl4ai - https://crawl4ai.com/llms.txt with key: <your key>
 
 The agent reads the setup steps from that file and adds the Crawl4AI MCP server to its own config.
 
-To do it by hand, add this to `opencode.json`:
+To do it by hand, add this to your user config, `~/.config/opencode/opencode.json`. Do not put it in the `opencode.json` of a project: that file is often committed, and the key would be published.
 
 ```json
 "mcp": { "crawl4ai": { "type": "remote", "url": "https://api.crawl4ai.com/mcp", "headers": { "Authorization": "Bearer <your key>" } } }

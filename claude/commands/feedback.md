@@ -5,7 +5,7 @@ allowed-tools:
   - mcp__plugin_crawl4ai_crawl4ai__report_issue
 ---
 
-The user wants to send this to the Crawl4AI team: 
+The user wants to send this to the Crawl4AI team: $ARGUMENTS
 
 1. If the text is empty, ask the user what they want to send and stop.
 2. Pick the kind: `[bug]` for something that does not work, `[feature]` for a request, `[feedback]` for anything else.

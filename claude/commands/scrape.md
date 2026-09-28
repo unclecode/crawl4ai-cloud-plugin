@@ -5,7 +5,7 @@ allowed-tools:
   - mcp__plugin_crawl4ai_crawl4ai__scrape
 ---
 
-Scrape this URL with the Crawl4AI Cloud `scrape` tool and `format: "md"`: 
+Scrape this URL with the Crawl4AI Cloud `scrape` tool and `format: "md"`: $ARGUMENTS
 
 - If no URL was given, ask the user for one and stop.
 - Show the page title and a short summary of the page, then the markdown.

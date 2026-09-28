@@ -5,7 +5,7 @@ allowed-tools:
   - mcp__plugin_crawl4ai_crawl4ai__extract
 ---
 
-Extract data with the Crawl4AI Cloud `extract` tool. The input is: 
+Extract data with the Crawl4AI Cloud `extract` tool. The input is: $ARGUMENTS
 
 - The first word is the URL. The rest says what to extract.
 - If the URL or the "what" is missing, ask the user for it and stop.

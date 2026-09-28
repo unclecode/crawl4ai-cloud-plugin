@@ -20,6 +20,9 @@ To do it by hand, add this to `~/.codex/config.toml`:
 [mcp_servers.crawl4ai]
 url = "https://api.crawl4ai.com/mcp"
 http_headers = { Authorization = "Bearer <your key>" }
+tool_timeout_sec = 120
 ```
+
+A page that needs a real browser can take up to 90 seconds, so `tool_timeout_sec` is 120.
 
 Restart Codex if the tools do not show.

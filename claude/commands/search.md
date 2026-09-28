@@ -5,7 +5,7 @@ allowed-tools:
   - mcp__plugin_crawl4ai_crawl4ai__search
 ---
 
-Search the web with the Crawl4AI Cloud `search` tool for: 
+Search the web with the Crawl4AI Cloud `search` tool for: $ARGUMENTS
 
 - If no query was given, ask the user for one and stop.
 - Show the results as a numbered list: the title, the URL and a one-line snippet.
