@@ -1,0 +1,30 @@
+{
+  "name": "crawl4ai",
+  "displayName": "Crawl4AI Cloud",
+  "version": "0.1.0",
+  "description": "Scrape web pages to markdown, search the web, extract typed JSON and crawl many URLs with Crawl4AI Cloud.",
+  "author": {
+    "name": "Crawl4AI",
+    "url": "https://crawl4ai.com"
+  },
+  "homepage": "https://crawl4ai.com",
+  "repository": "https://github.com/unclecode/crawl4ai-cloud-plugin",
+  "license": "Apache-2.0",
+  "keywords": ["crawl4ai", "web", "scrape", "crawl", "search", "extract", "markdown", "mcp"],
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "Crawl4AI API key",
+      "description": "Your Crawl4AI Cloud API key. Get one at https://api.crawl4ai.com/ (Get a key), and manage your keys on the dashboard at https://api.crawl4ai.com/dashboard/.",
+      "sensitive": true,
+      "required": true
+    },
+    "base_url": {
+      "type": "string",
+      "title": "API base URL",
+      "description": "Leave empty to use https://api.crawl4ai.com. Set it only if you run your own Crawl4AI Cloud server.",
+      "required": false,
+      "default": "https://api.crawl4ai.com"
+    }
+  }
+}

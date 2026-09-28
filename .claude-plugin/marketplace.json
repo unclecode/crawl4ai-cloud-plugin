@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "crawl4ai-cloud",
+  "description": "Crawl4AI Cloud plugins: scrape, search, extract and crawl the web from your coding agent.",
+  "owner": {
+    "name": "Crawl4AI",
+    "url": "https://crawl4ai.com"
+  },
+  "plugins": [
+    {
+      "name": "crawl4ai",
+      "source": "./claude",
+      "description": "Scrape, search, extract and crawl the web with Crawl4AI Cloud, through its remote MCP server.",
+      "category": "development",
+      "homepage": "https://crawl4ai.com"
+    }
+  ]
+}

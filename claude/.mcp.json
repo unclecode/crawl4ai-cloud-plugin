@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "crawl4ai": {
+      "type": "http",
+      "url": "${user_config.base_url}/mcp",
+      "headers": {
+        "Authorization": "Bearer ${user_config.api_key}",
+        "X-Crawl4AI-Client": "claude-code-plugin/0.1.0"
+      }
+    }
+  }
+}
