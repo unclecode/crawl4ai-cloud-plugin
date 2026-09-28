@@ -15,7 +15,7 @@
     "api_key": {
       "type": "string",
       "title": "Crawl4AI API key",
-      "description": "Your Crawl4AI Cloud API key. Get one at https://api.crawl4ai.com/ (Get a key), and manage your keys on the dashboard at https://api.crawl4ai.com/dashboard/.",
+      "description": "Your Crawl4AI Cloud API key. Get one at https://crawl4ai.com (Get a key), and manage your keys on the dashboard at https://crawl4ai.com/dashboard/.",
       "sensitive": true,
       "required": true
     },

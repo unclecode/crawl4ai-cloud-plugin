@@ -11,11 +11,11 @@ You install nothing else: no command-line tool and no local server.
 
 ## Get an API key
 
-1. Open https://api.crawl4ai.com/ and click "Get a key".
+1. Open https://crawl4ai.com and click "Get a key".
 2. Verify your email to get a permanent key and the signup credit.
-3. Manage your keys and your credit on the dashboard: https://api.crawl4ai.com/dashboard/
+3. Manage your keys and your credit on the dashboard: https://crawl4ai.com/dashboard/
 
-Each call costs credits. The price table is at https://api.crawl4ai.com/v1/prices.
+Each call costs credits. The prices are on https://crawl4ai.com.
 
 ## Install in Claude Code
 
@@ -66,9 +66,9 @@ Claude uses a skill by itself when your task fits it. You can also call one by n
 | Skill | What it does |
 |---|---|
 | `web-research` | Answers a question from the web. It searches, reads the best 3 to 5 pages and gives the source URLs. |
-| `scrape-to-files` | Saves pages as markdown files under `.crawl4ai/` in your project. It runs in its own context, so the page text does not fill the chat. |
+| `scrape-to-files` | Saves 1 to 10 pages as markdown files under `.crawl4ai/` in your project. It runs in its own context, so the page text stays out of the chat. |
 | `extract-data` | Gets typed JSON from a page, from an instruction or a JSON schema. |
-| `bulk-crawl` | Scrapes many URLs: up to 50 in one batch, 50 to 500 as a background job. It shows the cost estimate first for more than 10 URLs. |
+| `bulk-crawl` | Scrapes more than 10 URLs and can save them as files. It shows the cost estimate first and waits for your yes. Up to 50 URLs run in one batch, 50 to 500 as a background job. |
 | `recipes` | Runs a ready-made scraper for a known site. Not open yet: the skill checks and tells you. |
 | `watch` | Watches a page and reports the changes you care about. In private preview: the skill checks and tells you. |
 
@@ -110,7 +110,7 @@ The plugin adds the MCP server `crawl4ai`. Its tools have names like `mcp__plugi
 
 - Add `.crawl4ai/` to your `.gitignore` if you do not want saved pages in your repository.
 - A page that needs a real browser can take up to 90 seconds. Let the call run.
-- Out of credit (HTTP 402): top up on the dashboard at https://api.crawl4ai.com/dashboard/.
+- Out of credit (HTTP 402): top up on the dashboard at https://crawl4ai.com/dashboard/.
 - In headless mode (`claude -p`), allow the tools, for example
   `claude -p --allowedTools "mcp__plugin_crawl4ai_crawl4ai" "Skill" "<your prompt>"`.
 
@@ -134,8 +134,8 @@ The full API, written for agents: https://crawl4ai.com/llms.txt
 ## Links
 
 - Crawl4AI Cloud: https://crawl4ai.com
-- API docs: https://api.crawl4ai.com/docs
-- Dashboard: https://api.crawl4ai.com/dashboard/
+- API docs: https://crawl4ai.com/docs/
+- Dashboard: https://crawl4ai.com/dashboard/
 - Open-source Crawl4AI: https://github.com/unclecode/crawl4ai
 
 ## License

@@ -4,7 +4,7 @@ A plugin for OpenCode is coming soon.
 
 ## Use it today
 
-Get an API key at https://api.crawl4ai.com/ (the dashboard: https://api.crawl4ai.com/dashboard/).
+Get an API key at https://crawl4ai.com (the dashboard: https://crawl4ai.com/dashboard/).
 
 Then send this one line to OpenCode. Put your own key after `key:`.
 
