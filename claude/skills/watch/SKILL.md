@@ -21,9 +21,11 @@ Watch is not open for their account yet, and stop.
 1. Get from the user:
    - the URL,
    - one plain sentence on the change they care about (`watch`), for example "a plan's price goes up",
-   - how often to check (`every`: `4m`, `1h`, `6h`, `1d` or `1w`; default `1d`).
-2. Tell the user the cost before you call: 1 credit for each check and 3 credits for each matched change.
-   A blocked or failed check is free.
+   - how often to check (`every`): `auto` (the default: as often as the page really changes, at least once
+     a day) for almost every need; a fixed `4m`, `1h`, `6h`, `1d` or `1w` only when the user must know within
+     a set time.
+2. Tell the user the cost before you call: 1 credit for each check (2 for a fixed interval under 1 hour)
+   and 3 credits for each matched change. A blocked or failed check is free.
 3. Call `watch_page`. Show the monitor id and the conditions as the server read the sentence. If the
    conditions are wrong, call again with a clearer sentence.
 4. Add `notify` (a webhook, an email address, or a trigger URL and token) only when the user gives it.
