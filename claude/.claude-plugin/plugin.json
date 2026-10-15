@@ -1,7 +1,7 @@
 {
   "name": "crawl4ai",
   "displayName": "Crawl4AI Cloud",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Scrape web pages to markdown, search the web, extract typed JSON and crawl many URLs with Crawl4AI Cloud.",
   "author": {
     "name": "Crawl4AI",

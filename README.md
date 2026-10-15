@@ -70,7 +70,7 @@ Claude uses a skill by itself when your task fits it. You can also call one by n
 | `extract-data` | Gets typed JSON from a page, from an instruction or a JSON schema. |
 | `bulk-crawl` | Saves more than 10 URLs as files. It shows the cost estimate first and waits for your yes. Then `scrape-to-files` saves the pages: up to 50 in one batch, 51 to 500 as a background job. |
 | `recipes` | Runs a ready-made scraper for a known site. Not open yet: the skill checks and tells you. |
-| `watch` | Watches a page and reports the changes you care about. In private preview: the skill checks and tells you. |
+| `watch` | Watches a page and reports the changes you care about, reads them, and stops or pauses a watch. In private preview. |
 
 ### Commands
 
@@ -102,9 +102,27 @@ The plugin adds the MCP server `crawl4ai`. Its tools have names like `mcp__plugi
 | `estimate` | The credit range of a call before it runs. |
 | `balance` | Your credit. |
 | `recipes_list`, `recipe_run` | Ready-made scrapers (not open yet). |
-| `watch_page`, `list_changes` | Page change monitors (private preview). |
+| `watch_page`, `watch_changes`, `list_changes`, `stop_watching`, `resume_watching` | Page change monitors (private preview). |
 | `topup`, `spend_cap`, `recharge` | Credit and billing settings. The skills never call these without your clear yes. |
 | `report_issue` | Sends a report to the Crawl4AI team. |
+
+## Watch changes in your session
+
+Watch can push its changes into a running Claude Code session, so the agent learns about a change with no timer.
+This uses Claude Code channels, which are a research preview. Start the session like this:
+
+```
+CRAWL4AI_WATCH_CHANNEL=1 claude --dangerously-load-development-channels plugin:crawl4ai@crawl4ai-cloud
+```
+
+Claude Code shows a warning about development channels: select "I am using this for local development".
+A new change then appears in the session as a line that starts with `← watch:`.
+
+- The channel reads your Watch feed and marks the changes read. It reads only in a session started with
+  `CRAWL4AI_WATCH_CHANNEL=1`. In every other session it does nothing.
+- To read only one agent's monitors, also set `CRAWL4AI_AGENT=<label>`.
+- It needs `python3` (3.9 or newer). It runs only while the session is open.
+- Until Crawl4AI is on Anthropic's channel allowlist, the development flag is needed.
 
 ## Tips
 

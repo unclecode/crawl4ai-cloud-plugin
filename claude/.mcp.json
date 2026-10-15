@@ -5,7 +5,15 @@
       "url": "${user_config.base_url}/mcp",
       "headers": {
         "Authorization": "Bearer ${user_config.api_key}",
-        "X-Crawl4AI-Client": "claude-code-plugin/0.1.0"
+        "X-Crawl4AI-Client": "claude-code-plugin/0.2.0"
+      }
+    },
+    "watch": {
+      "command": "python3",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/watch_channel.py"],
+      "env": {
+        "CRAWL4AI_API_KEY": "${user_config.api_key}",
+        "CRAWL4AI_BASE_URL": "${user_config.base_url}"
       }
     }
   }
