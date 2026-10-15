@@ -2,7 +2,8 @@
 
 This repository holds plugins that connect coding agents to [Crawl4AI Cloud](https://crawl4ai.com).
 Crawl4AI Cloud is the hosted API of the open-source crawler [Crawl4AI](https://github.com/unclecode/crawl4ai).
-It turns web pages into clean markdown, searches the web, extracts typed JSON and crawls many URLs.
+It turns web pages into clean markdown, searches the web, gives Google's results page as data with true ranks (SERP),
+extracts typed JSON and crawls many URLs.
 
 Today the repository has a plugin for Claude Code. Plugins for other agents come later (see [Other agents](#other-agents)).
 
@@ -67,6 +68,7 @@ Claude uses a skill by itself when your task fits it. You can also call one by n
 |---|---|
 | `web-research` | Answers a question from the web. It searches, reads the best 3 to 5 pages and gives the source URLs. |
 | `scrape-to-files` | Saves pages as markdown files under `.crawl4ai/` in your project. It runs in its own context, so the page text stays out of the chat. It writes only inside `.crawl4ai/`. |
+| `google-serp` | Gets Google's results page as data: the rank of each result and the blocks Google showed, for a country or a city. For rank tracking and SEO. |
 | `extract-data` | Gets typed JSON from a page, from an instruction or a JSON schema. |
 | `bulk-crawl` | Saves more than 10 URLs as files. It shows the cost estimate first and waits for your yes. Then `scrape-to-files` saves the pages: up to 50 in one batch, 51 to 500 as a background job. |
 | `recipes` | Runs a ready-made scraper for a known site. Not open yet: the skill checks and tells you. |
@@ -78,6 +80,7 @@ Claude uses a skill by itself when your task fits it. You can also call one by n
 |---|---|
 | `/crawl4ai:scrape <url>` | Scrapes one page to markdown. |
 | `/crawl4ai:search <query>` | Searches the web and lists the results. |
+| `/crawl4ai:serp <query> [in <place>]` | Shows Google's results page for a query: ranks, domains and the blocks Google showed. |
 | `/crawl4ai:extract <url> <what>` | Extracts the data you describe as JSON. |
 | `/crawl4ai:crawl <urls or a file of urls>` | Scrapes and saves many URLs under `.crawl4ai/`. |
 | `/crawl4ai:balance` | Shows your credit. |
@@ -95,6 +98,7 @@ The plugin adds the MCP server `crawl4ai`. Its tools have names like `mcp__plugi
 |---|---|
 | `scrape` | One page to markdown or HTML. |
 | `search` | Web search with ranked results. |
+| `serp` | Google's results page as data: true ranks and the blocks Google showed, for a country or a city. Beta. |
 | `answer` | A direct answer with sources. Experimental. |
 | `extract` | Typed data from a page. |
 | `batch` | Up to 50 URLs in one call. |
@@ -102,6 +106,7 @@ The plugin adds the MCP server `crawl4ai`. Its tools have names like `mcp__plugi
 | `estimate` | The credit range of a call before it runs. |
 | `balance` | Your credit. |
 | `recipes_list`, `recipe_run` | Ready-made scrapers (not open yet). |
+| `site_crawl`, `site_scan` | Crawl a whole site, or list every URL of a site (coming soon). |
 | `watch_page`, `watch_changes`, `list_changes`, `stop_watching`, `resume_watching` | Page change monitors (private preview). |
 | `topup`, `spend_cap`, `recharge` | Credit and billing settings. The skills never call these without your clear yes. |
 | `report_issue` | Sends a report to the Crawl4AI team. |

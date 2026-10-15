@@ -2,7 +2,7 @@
   "name": "crawl4ai",
   "displayName": "Crawl4AI Cloud",
   "version": "0.2.0",
-  "description": "Scrape web pages to markdown, search the web, extract typed JSON and crawl many URLs with Crawl4AI Cloud.",
+  "description": "Scrape web pages to markdown, search the web, get Google results with true ranks (SERP), extract typed JSON and crawl many URLs with Crawl4AI Cloud.",
   "author": {
     "name": "Crawl4AI",
     "url": "https://crawl4ai.com"
@@ -10,7 +10,7 @@
   "homepage": "https://crawl4ai.com",
   "repository": "https://github.com/unclecode/crawl4ai-cloud-plugin",
   "license": "Apache-2.0",
-  "keywords": ["crawl4ai", "web", "scrape", "crawl", "search", "extract", "markdown", "mcp"],
+  "keywords": ["crawl4ai", "web", "scrape", "crawl", "search", "serp", "google", "seo", "extract", "markdown", "mcp"],
   "userConfig": {
     "api_key": {
       "type": "string",
