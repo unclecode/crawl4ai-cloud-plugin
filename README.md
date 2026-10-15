@@ -13,7 +13,7 @@ You install nothing else: no command-line tool and no local server.
 ## Get an API key
 
 1. Open https://crawl4ai.com and click "Get a key".
-2. Verify your email to get a permanent key and the signup credit.
+2. Verify your email to get a permanent key and 1,000 free credits every month.
 3. Manage your keys and your credit on the dashboard: https://crawl4ai.com/dashboard/
 
 Each call costs credits. The prices are on https://crawl4ai.com.
@@ -104,11 +104,12 @@ The plugin adds the MCP server `crawl4ai`. Its tools have names like `mcp__plugi
 | `batch` | Up to 50 URLs in one call. |
 | `jobs_submit`, `jobs_status`, `jobs_results` | 50 to 500 URLs as a background job. |
 | `estimate` | The credit range of a call before it runs. |
-| `balance` | Your credit. |
+| `balance` | Your credit and your plan. |
+| `plans` | The monthly plans (Starter, Builder, Scale) and where to start one. |
 | `recipes_list`, `recipe_run` | Ready-made scrapers (not open yet). |
 | `site_crawl`, `site_scan` | Crawl a whole site, or list every URL of a site (coming soon). |
 | `watch_page`, `watch_changes`, `list_changes`, `stop_watching`, `resume_watching` | Page change monitors (private preview). |
-| `topup`, `spend_cap`, `recharge` | Credit and billing settings. The skills never call these without your clear yes. |
+| `topup`, `spend_cap`, `recharge` | Extra credits on a plan, your own monthly cap, auto-recharge. They spend or limit money: the skills never call them without your clear yes. |
 | `report_issue` | Sends a report to the Crawl4AI team. |
 
 ## Watch changes in your session
@@ -134,7 +135,7 @@ A new change then appears in the session as a line that starts with `← watch:`
 - Saving a long page runs a small script from the plugin with `python3` (3.9 or newer). macOS and most Linux systems have it.
 - Add `.crawl4ai/` to your `.gitignore` if you do not want saved pages in your repository.
 - A page that needs a real browser can take up to 90 seconds. Let the call run.
-- Out of credit (HTTP 402): top up on the dashboard at https://crawl4ai.com/dashboard/.
+- Out of credit or over a limit (HTTP 402 or 429): the answer says why and gives the link. A free account starts a plan; a plan buys extra credits on the dashboard's Billing tab.
 - In headless mode (`claude -p`), allow the tools you need. Put the prompt first, because `--allowedTools` takes every word after it. Do not allow the whole server: that also allows `topup`, `spend_cap` and `recharge`, which spend money.
 
   ```
